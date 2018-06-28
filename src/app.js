@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const munrosDropdown = document.querySelector('#regions')
   const munros = new Munros('https://munroapi.herokuapp.com/api/munros')
   munros.getData();
+  munros.bindEvents();
   const munrosView = new MunrosView(munrosList, munrosDropdown);
   munrosView.bindEvents();
 })
