@@ -10,14 +10,24 @@ MunrosView.prototype.bindEvents = function () {
   });
 };
 
+
 MunrosView.prototype.populate = function (munros) {
-  const munrosList = document.createElement("ol");
-  munros.forEach((munro, index) => {
-    const aMunro = document.createElement("li");
-    aMunro.textContent = munro.name;
-    munrosList.appendChild(aMunro);
+  munros.forEach((munro) => {
+    const munrosName = document.createElement('h2');
+    munrosName.textContent = munro.name;
+    this.element.appendChild(munrosName);
+    const munrosList = document.createElement("ul");
+    const munroHeight = document.createElement("li");
+    const munroMeaning = document.createElement("li");
+    munroHeight.textContent = "Height: " + munro.height;
+    munroMeaning.textContent = "Meaning: " + munro.meaning;
+    munrosList.appendChild(munroMeaning);
+    munrosList.appendChild(munroHeight);
+    this.element.appendChild(munrosList);
   });
-  this.element.appendChild(munrosList);
 };
+
+
+
 
 module.exports = MunrosView;
