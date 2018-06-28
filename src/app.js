@@ -1,3 +1,5 @@
+const Munros = require('./models/munros.js')
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('JavaScript Loaded');
+  const munros = new Munros('https://munroapi.herokuapp.com/api/munros')
+  munros.getData();
 })
